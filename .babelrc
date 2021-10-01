@@ -1,0 +1,9 @@
+//va a trabajar con un paquete llamado babel 
+//y va a estar enlazado con webpack
+
+//Configuracion de los modulos que van a traducir codigo
+{
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
