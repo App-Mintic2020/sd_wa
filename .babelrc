@@ -4,6 +4,7 @@
 //Configuracion de los modulos que van a traducir codigo
 {
     "presets": [
-        "@babel/preset-env"
+        "@babel/preset-env",
+        "@babel/preset-react"
     ]
 }
