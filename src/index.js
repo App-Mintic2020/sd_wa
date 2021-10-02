@@ -13,7 +13,7 @@ app.set('port', 5000);
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(require("./routes/routes"));//El archivo routes lo que devuelve es un objeto
-app.use(express.static(__dirname + 'public'));
+app.use(express.static(__dirname + '/public'));
 
 
 app.listen(app.get('port'), () =>{
