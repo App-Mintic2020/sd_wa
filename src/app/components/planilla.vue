@@ -1,44 +1,31 @@
 <template>
     <div>
-        <div class="container col-md-6">
-            <div class="row">
-                <div class="col">
-                    <h2 class="mx-auto">Regitro de planilla -</h2>
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Nombre de la planilla ingresada">
-                </div>
-            </div>
-        </div>
+        <h3>Registro de nueva planilla</h3>
 
-        <div class="container col-md-6">
-            <form class="row g-3">
+        <div class="container col-md-12">
+
+            <form @submit="adicionar_partido" class="row g-3" >
                 <div class="col-md-6">
                     <label class="form-label; text-center">Equipo Local</label>
-                    <input type="text" class="form-control" placeholder="Ingrese el nombre del equipo local">
+                    <input type="text" class="form-control" placeholder="Ingrese el nombre del equipo local" v-model="partido.local">
                 </div>
                 <div class="col-md-6">
                     <label class="form-label; text-center">Equipo Visitante</label>
-                    <input type="text" class="form-control" placeholder="Ingrese el nombre del equipo visitante">
+                    <input type="text" class="form-control" placeholder="Ingrese el nombre del equipo visitante" v-model="partido.visitante">
                 </div>
                 <div class="col-md-6">
                     <label class="form-label; text-center">Goles Local</label>
-                    <input type="text" class="form-control" disabled>
+                    <input type="text" class="form-control" v-model="partido.goles_l">
                 </div>
                 <div class="col-md-6">
                     <label class="form-label; text-center">Goles visitante</label>
-                    <input type="text" class="form-control" disabled>
+                    <input type="text" class="form-control" v-model="partido.goles_v">
                 </div>
-            </form>
-        </div>
 
-
-        <div class="container col-md-12">
-            <form class="row g-3">
 
                 <div class="col-md-3">
                     <label class="form-label">Nombre jugador local</label>
-                    <input type="text" class="form-control" placeholder="Jugador local 1" style="background-color: #DAFFB0; border: 1px solid green">
+                    <input type="text" class="form-control" placeholder="Jugador local" style="background-color: #DAFFB0; border: 1px solid green">
                 </div>
                 <div class="col-md-1">
                     <label class="form-label">N°Camiseta</label>
@@ -67,7 +54,7 @@
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">Nombre jugador visitante</label>
-                    <input type="text" class="form-control" placeholder="Jugador visitante 1" style="background-color: #E8E8E8; border: 1px solid black">
+                    <input type="text" class="form-control" placeholder="Jugador visitante" style="background-color: #E8E8E8; border: 1px solid black">
                 </div>
                 <div class="col-md-1">
                     <label class="form-label">N°Camiseta</label>
@@ -105,4 +92,40 @@
 export default{
     
 }
+</script>
+
+<script>
+    class DatosPartido {
+        constructor(local,visitante,goles_l, goles_v){
+            this.local = local;
+            this.visitante = visitante;
+            this.goles_l = goles_l;
+            this.goles_v = goles_v;
+        }
+    }
+    export default{
+        data(){
+            return {
+                partido: new DatosPartido()
+
+            }
+        },
+        methods: {
+            adicionar_partido () {
+                fetch('/routes',{
+                    method: 'POST',
+                    body: JSON.stringify(this.partido),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(res => console.log(res.json()))
+                .then(data => 
+                    console.log(data)
+                );
+            }
+        }
+
+    }
 </script>

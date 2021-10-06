@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const partido = new Schema({
-    "equipo_a": String,
-    "equipo_b": String,
-    "goles_a": Number,
-    "goles_b": Number
+    "equipo_local": String,
+    "equipo_visitante": String,
+    "goles_local": Number,
+    "goles_visitante": Number
 });
 
 module.exports = mongoose.model('datos_partidos', partido );
