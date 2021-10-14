@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const partido = require('../models/resultados');
 const jugadores = require('../models/jugadores');
-
+const mongoose = require("mongoose");
 
 router.post('/', async (req, res) => {
     const objeto_partido = new partido(req.body);
@@ -35,9 +35,19 @@ router.put('/:id', async (req, res) => {
 
 
 router.post('/jugadores', async (req, res) => {
-    const objeto_jugador = new jugadores(req.body);
-    console.log(objeto_jugador);
-    await objeto_jugador.save();
+    const objeto_jugadores = req.body;
+
+    let jugadoresArray = [];
+
+    objeto_jugadores.forEach(async (jug) => {
+        if (jug._id) {
+            await jugadores.updateOne({_id: jug._id}, jug);
+        } else {
+            await jugadores.create(jug);
+        }
+    });
+
+
     res.json({
         status: 'Jugadores guardados'
     });
@@ -66,5 +76,7 @@ router.put('/jugadores/:id', async (req, res) => {
         status: 'El jugador ha sido actualizado'
     });
 });
+
+
 
 module.exports = router;

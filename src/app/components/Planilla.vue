@@ -136,13 +136,17 @@
                                 </button>
 
                                 <button type="button" class="btn btn-secondary" style="background-color: #0D0D20">
-                                        <router-link class="text-white" to="/equipos">Continuar</router-link>	
+                                        <router-link class="text-white" to="/equipos">Continuar</router-link>
                                 </button>
 
                                 <button type="button" class="btn btn-secondary" style="background-color: #0D0D20">
-                                        <router-link class="text-white" to="/">Descartar</router-link>	
+                                        <router-link class="text-white" to="/">Descartar</router-link>
                                 </button>
-                                
+
+                                <button type="button" class="btn btn-secondary" style="background-color: #0D0D20" @click="sendAll">
+                                       Registrar todos
+                                </button>
+
                             </div>
                         </div>
             </div>
@@ -189,18 +193,19 @@
             },
             sendTask() {
                 if(this.edit === false) {
-                    fetch('/routes/jugadores', {
-                        method: 'POST',
-                        body: JSON.stringify(this.jugadores),
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-type': 'application/json'
-                        }
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        this.getTask();
-                    })
+                    this.all_jugadores.push(this.jugadores);
+                    // fetch('/routes/jugadores', {
+                    //     method: 'POST',
+                    //     body: JSON.stringify(this.jugadores),
+                    //     headers: {
+                    //         'Accept': 'application/json',
+                    //         'Content-type': 'application/json'
+                    //     }
+                    // })
+                    // .then(res => res.json())
+                    // .then(data => {
+                    //     this.getTask();
+                    // })
                 } else {
                     fetch('/routes/jugadores/' + this.jugadoresToEdit, {
                         method: 'PUT',
@@ -217,8 +222,23 @@
                     })
                 }
 
-
                 this.jugadores= new DatosJugadores();
+            },
+            sendAll() {
+              console.log(this.all_jugadores);
+              fetch('/routes/jugadores', {
+                method: 'POST',
+                body: JSON.stringify(this.all_jugadores),
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-type': 'application/json'
+                }
+              })
+                  .then(res => res.json())
+                  .then(data => {
+                    this.getTask();
+                    this.edit = false;
+                  })
             },
             deleteTask (id) {
                 fetch('/routes/jugadores/' + id, {

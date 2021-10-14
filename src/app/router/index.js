@@ -3,11 +3,12 @@ import Router from 'vue-router'
 import Home from './../components/Home.vue';
 import Planilla from './../components/Planilla.vue';
 import Equipos from './../components/Equipos.vue';
+import PlanillaEquipo from './../components/PlanillaEquipo.vue';
 
 Vue.use(Router)
 
 export default new Router({
-  // mode: 'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -23,6 +24,11 @@ export default new Router({
       path: '/equipos',
       name: 'Equipos',
       component: Equipos,
+    },
+    {
+      path: '/equipos-planilla',
+      name: 'EquiposPlanilla',
+      component: PlanillaEquipo,
     }
   ]
 })

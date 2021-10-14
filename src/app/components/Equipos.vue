@@ -23,15 +23,17 @@
                     <label class="form-label; text-center">Equipo Visitante</label>
                     <input type="text" class="form-control" placeholder="Ingrese el nombre del equipo visitante" v-model="partido.visitante">
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-6" v-if="showInfo">
                     <label class="form-label; text-center">Goles Local</label>
                     <input type="text" class="form-control" v-model="partido.goles_l">
                 </div>
                 
-                <div class="col-md-6">
+                <div class="col-md-6" v-if="showInfo">
                     <label class="form-label; text-center">Goles visitante</label>
                     <input type="text" class="form-control" v-model="partido.goles_v">
                 </div>
+
 
                 <div class="container col-md-2">
                 <button class="btn btn-primary" style="background-color: #007400">Guardar Partido</button>
@@ -62,8 +64,8 @@
     export default{
         data(){
             return {
-                partido: new DatosPartido()
-
+                partido: new DatosPartido(),
+                showInfo: false
             }
         },
         methods: {
@@ -80,7 +82,11 @@
                 .then(res => res.json())
                 .then(data => console.log(data));
 
-                this.partido = new DatosPartido;
+                this.showInfo = true;
+
+                this.$emit('comenzoPartido');
+
+                // this.partido = new DatosPartido;
             }
         }
 
