@@ -15,6 +15,9 @@ app.use(express.json());
 app.use( '/routes',require("./routes/routes"));//El archivo routes lo que devuelve es un objeto
 app.use(express.static(__dirname + '/public'));
 
+app.use((req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+});
 
 app.listen(app.get('port'), () =>{
     console.log('server on port', app.get('port'))

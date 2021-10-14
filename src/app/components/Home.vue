@@ -2,18 +2,13 @@
 <div>
 		<div class="container-fluid col-md-12">
             <div class="row">
-                <div class="col-md-11">
+                <div class="col-md-12">
                     <img src="images/header.jpg" style="width: 100%">
-                </div>
-                <div class="col-md-1">
-                    <div class="d-grid gap-1">
-                    <hr/>
-                    <button type="button" class="btn btn-success" style="background-color: #071D48">Cerrar sesión</button>
-                    </div>
                 </div>
             </div>
         </div>
-	 
+
+		
 		<div class="jumbotron">
 			<div class="container"> 
 				<div class="px-4 py-5 my-5 text-center">
@@ -25,7 +20,9 @@
 					la hermosa cultura del deporte con tus amigos y familiares,
 					siempre puedes contar con SportData para dejar huella de estos
 					fenomenales encuentros.</h5>
-					<p><a href="#" class="btn btn-success" style="background-color: #007400">Ver mas</a></p>
+					<button type="button" class="btn btn-secondary" style="background-color: #499E0B">
+                                        <router-link class="text-white" to="/informacion">Ver instrucciones</router-link>
+                    </button>
 			</div>
 		</div>
 		<div class="container">
@@ -37,8 +34,9 @@
 						<img class="d-block mx-auto mb-4" src="images/microfutbol.jpg" style="width: 100%">
 						<div class="row">
 							<div class="d-grid gap-2 d-md-block">
-								<button type="button" class="btn btn-secondary" style="background-color: #007400">Registrar planilla</button>
-								<button type="button" class="btn btn-success" style="background-color: #071D48">Ver mis planillas</button>
+								<button type="button" class="btn btn-success" style="background-color: #071D48" mx-auto disabled>
+									<router-link class="text-white"  to="/equipos-planilla">Proximamente</router-link>	
+								</button>
 							</div>
                     	</div>	
 					</div>
@@ -50,8 +48,9 @@
 						<img class="d-block mx-auto mb-4" src="images/futbol.jpg" style="width: 100%">
 							<div class="row">
 								<div class="d-grid gap-2 d-md-block">
-									<button type="button" class="btn btn-secondary" style="background-color: #007400">Registrar planilla</button>
-									<button type="button" class="btn btn-success" style="background-color: #071D48">Ver mis planillas</button>
+									<button type="button" class="btn btn-success" style="background-color: #071D48" mx-auto>
+										<router-link class="text-white" to="/equipos-planilla">Registrar planilla</router-link>						
+									</button>
 								</div>
                     		</div>
 					</div>
@@ -63,8 +62,9 @@
 						<img class="d-block mx-auto mb-4" src="images/baloncesto.jpg" style="width: 100%">
 						<div class="row">
                         <div class="d-grid gap-2 d-md-block">
-                            <button type="button" class="btn btn-secondary" style="background-color: #007400">Registrar planilla</button>
-                            <button type="button" class="btn btn-success" style="background-color: #071D48">Ver mis planillas</button>
+                            <button type="button" class="btn btn-success" style="background-color: #071D48" mx-auto disabled>
+								<router-link class="text-white"  to="/equipos-planilla">Proximamente</router-link>	
+							</button>
                         </div>
                     	</div>
 					</div>
@@ -73,11 +73,14 @@
 		</div>
 
 		<div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold">Noticias</h1>
+    <h1 class="display-5 fw-bold">Boletín deportivo</h1>
+	
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">Entérate de los últimos encuentros deportivos planillados en nuestra app y de noticias de intéres deportivo de la región y del mundo.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-success" style="background-color: #007400">Ultimos encuentros</button>
+        <button type="button" class="btn btn-success" style="background-color: #007400">
+			<a class="text-white" href="https://www.marca.com/ultimas-noticias.html">últimas Noticias</a>
+		</button>
         <button type="button" class="btn btn-outline-secondary">Nuestra App</button>
       </div>
     </div>
@@ -91,8 +94,12 @@
       <div class="col-lg-6 mx-auto">
         <p class="fs-5 mb-4">Contáctanos en nuestras redes sociales, será un gusto atenderte para que conozcas sobre nuestros servicios y saber sobre tus inquietudes e interéses.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button type="button" class="btn btn-outline-light">Facebook</button>
-					<button type="button" class="btn btn-outline-light">GitHub</button>
+          <button type="button" class="btn btn-outline-light">
+			  	<a class="text-white" href="https://www.instagram.com/sportdataplanillas/">Instagram</a>
+		  </button>
+			<button type="button" class="btn btn-outline-light">
+					<a class="text-white" href="https://github.com/App-Mintic2020/sd_wa">GitHub</a>
+			</button>
           <button type="button" class="btn btn-outline-light">Twitter</button>
         </div>
       </div>
@@ -104,3 +111,4 @@
 </div>
 
 </template>
+
