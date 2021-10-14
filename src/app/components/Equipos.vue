@@ -65,7 +65,7 @@
         data(){
             return {
                 partido: new DatosPartido(),
-                showInfo: false
+                showInfo: true
             }
         },
         methods: {
