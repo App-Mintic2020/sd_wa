@@ -2,18 +2,13 @@
 <div>
 		<div class="container-fluid col-md-12">
             <div class="row">
-                <div class="col-md-11">
+                <div class="col-md-12">
                     <img src="images/header.jpg" style="width: 100%">
-                </div>
-                <div class="col-md-1">
-                    <div class="d-grid gap-1">
-                    <hr/>
-                    <button type="button" class="btn btn-success" style="background-color: #071D48">Cerrar sesión</button>
-                    </div>
                 </div>
             </div>
         </div>
-	 
+
+		
 		<div class="jumbotron">
 			<div class="container"> 
 				<div class="px-4 py-5 my-5 text-center">
@@ -37,8 +32,9 @@
 						<img class="d-block mx-auto mb-4" src="images/microfutbol.jpg" style="width: 100%">
 						<div class="row">
 							<div class="d-grid gap-2 d-md-block">
-								<button type="button" class="btn btn-secondary" style="background-color: #007400">Registrar planilla</button>
-								<button type="button" class="btn btn-success" style="background-color: #071D48">Ver mis planillas</button>
+								<button type="button" class="btn btn-success" style="background-color: #071D48" mx-auto disabled>
+									<router-link class="text-white"  to="/Equipos">Proximamente</router-link>	
+								</button>
 							</div>
                     	</div>	
 					</div>
@@ -50,8 +46,9 @@
 						<img class="d-block mx-auto mb-4" src="images/futbol.jpg" style="width: 100%">
 							<div class="row">
 								<div class="d-grid gap-2 d-md-block">
-									<button type="button" class="btn btn-secondary" style="background-color: #007400">Registrar planilla</button>
-									<button type="button" class="btn btn-success" style="background-color: #071D48">Ver mis planillas</button>
+									<button type="button" class="btn btn-success" style="background-color: #071D48" mx-auto>
+										<router-link class="text-white" to="/planilla">Registrar planilla</router-link>						
+									</button>
 								</div>
                     		</div>
 					</div>
@@ -63,8 +60,9 @@
 						<img class="d-block mx-auto mb-4" src="images/baloncesto.jpg" style="width: 100%">
 						<div class="row">
                         <div class="d-grid gap-2 d-md-block">
-                            <button type="button" class="btn btn-secondary" style="background-color: #007400">Registrar planilla</button>
-                            <button type="button" class="btn btn-success" style="background-color: #071D48">Ver mis planillas</button>
+                            <button type="button" class="btn btn-success" style="background-color: #071D48" mx-auto disabled>
+								<router-link class="text-white"  to="/Equipos">Proximamente</router-link>	
+							</button>
                         </div>
                     	</div>
 					</div>
@@ -104,3 +102,4 @@
 </div>
 
 </template>
+
