@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const app = express();
 
-mongoose.connect('mongodb+srv://usuariodb:uuM$bg-qHhPkvN8@cluster0.sveke.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+mongoose.connect('mongodb://localhost/sportdata')
     .then(db => console.log('ddbb connect'))
     .then(err => console.error(err));
 
